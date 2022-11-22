@@ -2,8 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import Moment from 'react-moment';
 import {MdLocationOn} from 'react-icons/md';
+import {FaTrash, FaEdit} from 'react-icons/fa';
 
-export default function ListingItem({listing, id}) {
+export default function ListingItem({listing, id, onEdit, onDelete}) {
   return (
     <li className='relative bg-white flex flex-col justify-between items-center shadow-md hover:shadow-xl rounded-md overflow-hidden transition-shadow duration-150 m-[10px]'>
         <Link className='contents' to={`/category/${listing.type}/${id}`}>
@@ -28,6 +29,12 @@ export default function ListingItem({listing, id}) {
                 </div>
             </div>
         </Link>
+        {onDelete && (
+            <FaTrash className='absolute right-2 bottom-2 h-[14px] cursor-pointer text-red-600' onClick={()=>onDelete(listing.id)}/>
+        )}
+        {onEdit && (
+            <FaEdit className='absolute right-7 bottom-2 h-[14px] cursor-pointer' onClick={()=>onEdit(listing.id)} />
+        )}
     </li>
   )
 }
