@@ -10,3 +10,11 @@
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
     background: #a8dadc !important;
 }
+
+html::-webkit-scrollbar{
+    display: none;
+}
+
+html{
+    scrollbar-width: none;
+}
